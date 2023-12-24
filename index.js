@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const obs = new OBSWebSocket();
 const app = express();
-const port = 3000;
+const port = process.env.SERVER_PORT || 3000;
 
 app.use(bodyParser.json());
 
