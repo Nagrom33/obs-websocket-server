@@ -2,10 +2,16 @@ require('dotenv').config();
 const OBSWebSocket = require('obs-websocket-js').default;
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const obs = new OBSWebSocket();
 const app = express();
 const port = process.env.SERVER_PORT || 3000;
+
+app.use(cors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+}));
 
 app.use(bodyParser.json());
 
